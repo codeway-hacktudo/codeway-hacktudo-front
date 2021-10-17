@@ -17,6 +17,7 @@ export const InputWrapper = styled.div`
   input {
     flex: 1;
     width: 100%;
+    color: #1c475c;
     height: 100%;
     font-weight: 700;
     font-size: 35px;

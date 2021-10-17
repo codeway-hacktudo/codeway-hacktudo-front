@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from '../pages/Home';
-import AllData from '../pages/AllData';
-import MissingData from '../pages/MissingData';
+import AllData from '../pages/Data/AllData';
+import MissingData from '../pages/Data/MissingData';
 import UpdateId from '../pages/UpdateId';
 
 const Routes: React.FC = () => {
