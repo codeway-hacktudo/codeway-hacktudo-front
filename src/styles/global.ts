@@ -9,14 +9,16 @@ export default createGlobalStyle`
 
  }
  body {
-   background: #FFF;
+   background: #FDFCFA;
    color: #303f42;
    -webkit-font-smoothing: antialiased;
- }
+  }
 
  body, input, button {
-   font-family: 'Roboto Slab', serif;
+   font-family: 'Merriweather', serif;
    font-size: 16px;
+   border: 0;
+   background: transparent;
    input:-webkit-autofill {
     color: #303f42, !important;
 }
