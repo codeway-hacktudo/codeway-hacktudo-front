@@ -15,7 +15,7 @@ export const ContentMenu = styled.div<IContentMenuProps>`
   display: flex;
   height: 100%;
   background-color: ${(props) => props.backgroundColor};
-  width: 30%;
+  width: 35%;
   padding: 32px;
   flex-direction: column;
 `;
@@ -23,7 +23,7 @@ export const ContentMenu = styled.div<IContentMenuProps>`
 export const Content = styled.div`
   display: flex;
   height: 100%;
-  width: 70%;
+  width: 65%;
   background-color: #fdfcfa;
   padding: 32px;
 `;
@@ -36,8 +36,7 @@ export const ContainerCenterMenu = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 35%;
-  align-items: center;
+  padding-top: 15%;
 
   h1 {
     font-family: 'Merriweather';
@@ -61,12 +60,11 @@ export const ContainerCenterMenu = styled.div`
   }
 
   button {
-    margin: 20% 0px;
+    margin-top: 30%;
   }
 `;
 
 export const ButtonWarpper = styled.div`
   width: 240px;
-
   align-self: center;
 `;

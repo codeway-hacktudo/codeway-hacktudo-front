@@ -14,7 +14,6 @@ export const Container = styled.button<IButtonProps>`
   font-family: Merriweather;
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
   border-radius: 8px;
   height: 56px;
   display: flex;
