@@ -17,13 +17,15 @@ const ProgressBar: React.FC<IProgressBarProps> = ({
   min,
   now,
 }: IProgressBarProps) => {
-  const [open, toggle] = useState(false);
+  // const [open, toggle] = useState(false);
   const [ref, {width}] = useMeasure();
-  const props = useSpring({width: open ? width : 0});
+  //  MUDAR NA INTEGRAÇÃO
+  const props = useSpring({width: now ? now * 1000 : 0});
 
   return (
     <ContainerProgressBar>
-      <Main ref={ref} onClick={() => toggle(!open)}>
+      {/* <Main ref={ref} onClick={() => toggle(!open)}> */}
+      <Main ref={ref}>
         <ContentFill style={props} />
         {/* <Content>{props.width.to((x) => x.toFixed(0))}</Content> */}
       </Main>
