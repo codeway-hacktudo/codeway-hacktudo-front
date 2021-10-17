@@ -36,6 +36,37 @@ export const ContainerCenterMenu = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  justify-content: center;
+  padding-top: 35%;
   align-items: center;
+
+  h1 {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+    color: #1c475c;
+    margin-top: 20%;
+  }
+
+  h2 {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: #1c475c;
+  }
+
+  button {
+    margin: 20% 0px;
+  }
+`;
+
+export const ButtonWarpper = styled.div`
+  width: 240px;
+
+  align-self: center;
 `;

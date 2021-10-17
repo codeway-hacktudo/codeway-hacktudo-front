@@ -6,6 +6,7 @@ import {
   ContentMenu,
   ContainerButton,
   ContainerCenterMenu,
+  ButtonWarpper,
 } from './styles';
 import Button from '../button';
 
@@ -19,13 +20,34 @@ interface ILayoutProps {
   onClickPrincipalButton: () => void;
 }
 
-const Layout: React.FC<ILayoutProps> = ({children, title, name, id, color}) => {
+const Layout: React.FC<ILayoutProps> = ({
+  children,
+  title,
+  name,
+  id,
+  color,
+  onClickBack,
+  onClickPrincipalButton,
+}) => {
+  const infosButtonSeenData =
+    color === '#E4EBED'
+      ? {
+          color: '#F7B6AF',
+          text: 'Ver dados faltantes',
+        }
+      : {
+          color,
+          text: 'Ver todos os dados',
+        };
   return (
     <Container>
       <ContentMenu backgroundColor={color}>
         <ContainerButton>
           <Button
-            icon={() => <HiArrowLeft color="#1C475C" />}
+            onClick={onClickBack}
+            icon={() => (
+              <HiArrowLeft color="#1C475C" style={{marginRight: 5}} />
+            )}
             background={color}>
             Voltar
           </Button>
@@ -33,8 +55,16 @@ const Layout: React.FC<ILayoutProps> = ({children, title, name, id, color}) => {
 
         <ContainerCenterMenu>
           <h1>{title}</h1>
-          <h2>{name}</h2>
-          <strong>{id}</strong>
+          <h1>{name}</h1>
+          <h2>{id}</h2>
+
+          <ButtonWarpper>
+            <Button
+              onClick={onClickPrincipalButton}
+              background={infosButtonSeenData.color}>
+              {infosButtonSeenData.text}
+            </Button>
+          </ButtonWarpper>
         </ContainerCenterMenu>
       </ContentMenu>
       <Content>{children}</Content>
