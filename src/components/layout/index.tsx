@@ -36,7 +36,7 @@ const Layout: React.FC<ILayoutProps> = ({
           text: 'Ver dados faltantes',
         }
       : {
-          color,
+          color: '#E4EBED',
           text: 'Ver todos os dados',
         };
   return (
