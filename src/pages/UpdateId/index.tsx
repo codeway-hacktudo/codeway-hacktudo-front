@@ -1,23 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
+import {useHistory} from 'react-router-dom';
+
 import {HiUpload, HiArrowLeft} from 'react-icons/hi';
 import Button from '../../components/button';
+import Loading from '../Loading';
+
 import IDConfirm from '../../assets/id-confirm.svg';
 
 import {Container, Title, InputDropId, ButtonWrapper} from './styles';
 
 const UpdateId: React.FC = () => {
-  const {getRootProps, getInputProps} = useDropzone();
+  const history = useHistory();
 
-  // const fileList = (files: FileWithPath[]): ReactNode =>
-  //   files.map((file) => (
-  //     <li key={file.path}>
-  //       {file.path} - {file.size} bytes
-  //     </li>
-  //   ));
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      console.log(acceptedFiles);
+      setLoading(true);
+
+      // TODO CHAMAR API
+      setTimeout(function () {
+        setLoading(false);
+        history.push('/all-data');
+      }, 3000);
+    },
+    [history],
+  );
+  const {getRootProps, getInputProps} = useDropzone({onDrop});
 
   const [errorResponseUploadId, setErrorResponseUploadId] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <Container>
       <Title>Hackathon BNY Mellon</Title>
@@ -44,13 +61,10 @@ const UpdateId: React.FC = () => {
             <input {...getInputProps()} />
           </InputDropId>
         )}
-        {/* <aside>
-          <h4>Arquivos</h4>
-          <ul>{fileList(acceptedFiles)}</ul>
-        </aside> */}
+
         <ButtonWrapper>
           <Button
-            onClick={() => console.log('teste')}
+            onClick={() => history.goBack()}
             icon={() => (
               <HiArrowLeft color="#1C475C" size="30" style={{marginRight: 5}} />
             )}

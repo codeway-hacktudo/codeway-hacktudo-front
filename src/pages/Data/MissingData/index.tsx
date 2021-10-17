@@ -1,23 +1,26 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {HiArrowLeft, HiArrowRight} from 'react-icons/hi';
-
 import loadash from 'lodash';
-import Layout from '../../components/layout';
-import ProgressBar from '../../components/progress-bar';
-import Button from '../../components/button';
-import {inputsSteps} from '../../utils/constants';
-import InputLabel from '../../components/input-label';
+import Layout from '../../../components/layout';
+import ProgressBar from '../../../components/progress-bar';
+import InputLabel from '../../../components/input-label';
+import Button from '../../../components/button';
+
+import {inputsSteps} from '../../../utils/constants';
 import {
   Container,
   ContainerInputs,
   ButtonWrapper,
   ContainerButtons,
-} from './styles';
+} from '../styles';
 
-const AllData: React.FC = () => {
+const MissingData: React.FC = () => {
   const history = useHistory();
-  const lengthInputsSteps = inputsSteps.length;
+
+  // TODO ALTERAR NA INTEGRAÇÃO
+  const inputsStepsErros = inputsSteps.slice(2, 5);
+  const lengthInputsSteps = inputsStepsErros.length;
 
   const [step, setStep] = useState(0);
 
@@ -30,20 +33,19 @@ const AllData: React.FC = () => {
 
   return (
     <Layout
-      title="Todos os dados"
+      title="Dados faltantes"
       name="Nome"
       id="000.000.000-00"
       onClickBack={() => history.goBack()}
-      onClickPrincipalButton={() => history.push('/missing-data')}
-      color="#E4EBED">
+      onClickPrincipalButton={() => history.push('/all-data')}
+      color="#F7B6AF">
       <Container>
         <div>
           <ProgressBar now={step / lengthInputsSteps} />
         </div>
-
         <ContainerInputs>
           {loadash.map(
-            inputsSteps[step],
+            inputsStepsErros[step],
             (
               inputMapContext: {nameLabel: string; translate: string},
               index,
@@ -58,7 +60,6 @@ const AllData: React.FC = () => {
             },
           )}
         </ContainerInputs>
-
         <ContainerButtons firstStep={step === 0}>
           {step !== 0 && (
             <ButtonWrapper>
@@ -83,4 +84,4 @@ const AllData: React.FC = () => {
   );
 };
 
-export default AllData;
+export default MissingData;
