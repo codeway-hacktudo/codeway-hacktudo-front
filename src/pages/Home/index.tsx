@@ -3,7 +3,6 @@ import InputMask from 'react-input-mask';
 import {useHistory} from 'react-router-dom';
 import Input from '../../components/input';
 import validateCNPJ from '../../utils/validateCNPJ';
-import Loading from '../Loading';
 import {Container, Title, InputWrapper} from './styles';
 
 const Home: React.FC = () => {
