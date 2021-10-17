@@ -36,7 +36,7 @@ const MissingData: React.FC = () => {
       title="Dados faltantes"
       name="Nome"
       id="000.000.000-00"
-      onClickBack={() => history.goBack()}
+      onClickBack={() => history.push('/')}
       onClickPrincipalButton={() => history.push('/all-data')}
       color="#F7B6AF">
       <Container>
