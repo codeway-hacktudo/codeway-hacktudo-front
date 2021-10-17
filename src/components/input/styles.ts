@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-// interface ContainerProps {
-//   isFocused: boolean;
-//   isFilled: boolean;
-//   isErrored: boolean;
-// }
+export const Container = styled.div``;
 
-export const Container = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +12,7 @@ export const Container = styled.div`
   border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   padding: 21px 24px;
+  margin-bottom: 8px;
 
   input {
     flex: 1;
@@ -36,4 +33,10 @@ export const Container = styled.div`
 export const ButtonWrapper = styled.div`
   width: 184px;
   height: 56px;
+`;
+
+export const ErrorMessage = styled.strong`
+  color: #ff988d;
+  font-size: 24px;
+  font-weight: 700;
 `;
