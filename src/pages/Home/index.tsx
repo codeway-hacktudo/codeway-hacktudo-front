@@ -7,7 +7,11 @@ const Home: React.FC = () => {
     <Container>
       <Title>Hackathon BNY Mellon</Title>
       <InputWrapper>
-        <Input placeholder="Insira seu CPF ou CNPJ" name="accountType" />
+        <Input
+          buttonProps={{background: '#E4EBED', text: 'Cadastro'}}
+          placeholder="Insira seu CPF ou CNPJ"
+          name="accountType"
+        />
       </InputWrapper>
     </Container>
   );

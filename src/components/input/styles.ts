@@ -7,6 +7,9 @@ import styled from 'styled-components';
 // }
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background: #f4f2e9;
@@ -28,4 +31,9 @@ export const Container = styled.div`
       line-height: 44px;
     }
   }
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 184px;
+  height: 56px;
 `;
