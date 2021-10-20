@@ -9,8 +9,8 @@ export default createGlobalStyle`
 
  }
  body {
-   background: #FDFCFA;
-   color: #303f42;
+  background: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.primary};
    -webkit-font-smoothing: antialiased;
   }
 
@@ -20,7 +20,7 @@ export default createGlobalStyle`
    border: 0;
    background: transparent;
    input:-webkit-autofill {
-    color: #303f42, !important;
+    color: ${(props) => props.theme.colors.primary}, !important;
 }
  }
 

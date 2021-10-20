@@ -14,7 +14,7 @@ export const Main = styled.div`
   height: 20px;
   cursor: pointer;
   border-radius: 8px;
-  border: 2px solid #1c475c;
+  border: 2px solid ${(props) => props.theme.colors.primary};
   overflow: hidden;
 `;
 
@@ -38,5 +38,5 @@ export const ContentFill = styled(animated.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #1c475c;
+  background: ${(props) => props.theme.colors.primary};
 `;

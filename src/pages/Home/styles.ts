@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const Title = styled.h1`
@@ -13,7 +14,7 @@ export const Title = styled.h1`
   font-weight: 700;
   font-size: 50px;
   line-height: 62px;
-  color: #1c475c;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const InputWrapper = styled.div`

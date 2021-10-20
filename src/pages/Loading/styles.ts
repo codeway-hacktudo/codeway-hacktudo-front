@@ -8,6 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0px 15%;
+  background-color: ${(props) => props.theme.colors.background};
 
   img {
     width: 130px;
@@ -21,5 +22,5 @@ export const Title = styled.h1`
   text-align: center;
   font-size: 50px;
   line-height: 62px;
-  color: #1c475c;
+  color: ${(props) => props.theme.colors.primary};
 `;

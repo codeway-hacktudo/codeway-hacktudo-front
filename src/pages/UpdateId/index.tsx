@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 import {useHistory} from 'react-router-dom';
-
+import {withTheme, DefaultTheme} from 'styled-components';
 import {HiUpload, HiArrowLeft} from 'react-icons/hi';
 import Button from '../../components/button';
 import Loading from '../Loading';
@@ -10,7 +10,11 @@ import IDConfirm from '../../assets/id-confirm.svg';
 
 import {Container, Title, InputDropId, ButtonWrapper} from './styles';
 
-const UpdateId: React.FC = () => {
+interface IUpdateIdProps {
+  theme: DefaultTheme;
+}
+
+const UpdateId: React.FC<IUpdateIdProps> = ({theme}) => {
   const history = useHistory();
 
   const onDrop = useCallback(
@@ -66,9 +70,13 @@ const UpdateId: React.FC = () => {
           <Button
             onClick={() => history.goBack()}
             icon={() => (
-              <HiArrowLeft color="#1C475C" size="30" style={{marginRight: 5}} />
+              <HiArrowLeft
+                color={theme.colors.primary}
+                size="30"
+                style={{marginRight: 5}}
+              />
             )}
-            background="#E4EBED"
+            background={theme.colors.success}
           />
         </ButtonWrapper>
       </section>
@@ -76,4 +84,4 @@ const UpdateId: React.FC = () => {
   );
 };
 
-export default UpdateId;
+export default withTheme(UpdateId);

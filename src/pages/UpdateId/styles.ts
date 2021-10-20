@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: ${(props) => props.theme.colors.background};
 `;
 
 export const Title = styled.h1`
@@ -13,7 +14,7 @@ export const Title = styled.h1`
   font-weight: 700;
   font-size: 50px;
   line-height: 62px;
-  color: #1c475c;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const InputDropId = styled.div`
@@ -23,7 +24,7 @@ export const InputDropId = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 440px;
-  background: #f4f2e9;
+  background: ${(props) => props.theme.colors.secundary};
   border: 1px dashed #b7b6af;
   border-radius: 8px;
   padding: 65px 35px;

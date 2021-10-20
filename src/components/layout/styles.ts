@@ -24,7 +24,7 @@ export const Content = styled.div`
   display: flex;
   height: 100%;
   width: 65%;
-  background-color: #fdfcfa;
+  background-color: ${(props) => props.theme.colors.background};
   padding: 32px;
 `;
 
@@ -45,7 +45,7 @@ export const ContainerCenterMenu = styled.div`
     font-size: 48px;
     line-height: 60px;
     text-align: center;
-    color: #1c475c;
+    color: ${(props) => props.theme.colors.primary};
     margin-top: 20%;
   }
 
@@ -56,7 +56,7 @@ export const ContainerCenterMenu = styled.div`
     font-size: 32px;
     line-height: 40px;
     text-align: center;
-    color: #1c475c;
+    color: ${(props) => props.theme.colors.primary};
   }
 
   button {

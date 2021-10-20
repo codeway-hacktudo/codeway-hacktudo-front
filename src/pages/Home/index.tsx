@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
 import InputMask from 'react-input-mask';
 import {useHistory} from 'react-router-dom';
+import {withTheme, DefaultTheme} from 'styled-components';
 import Input from '../../components/input';
 import validateCNPJ from '../../utils/validateCNPJ';
 import {Container, Title, InputWrapper} from './styles';
 import Loading from '../Loading';
 
-const Home: React.FC = () => {
+interface IHome {
+  theme: DefaultTheme;
+}
+
+const Home: React.FC<IHome> = ({theme}) => {
   const history = useHistory();
   const [documentValue, setDocumentValue] = useState('');
   const [validDocument, setValidDocument] = useState(true);
@@ -49,7 +54,7 @@ const Home: React.FC = () => {
             <Input
               {...inputProps}
               buttonProps={{
-                background: '#E4EBED',
+                background: theme.colors.success,
                 text: 'Cadastrar',
                 action: () => {
                   handleClick();
@@ -66,4 +71,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withTheme(Home);

@@ -12,7 +12,7 @@ export const Label = styled.strong`
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
-  color: #1c475c;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const TranslateLabel = styled.strong`
@@ -21,7 +21,7 @@ export const TranslateLabel = styled.strong`
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
-  color: #1c475c;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const InputWrapper = styled.div`
@@ -30,7 +30,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background: #f4f2e9;
+  background: ${(props) => props.theme.colors.secundary};
   border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   padding: 12px;
@@ -43,7 +43,7 @@ export const InputWrapper = styled.div`
     font-weight: 700;
     font-size: 16px;
     line-height: 44px;
-    color: #1c475c;
+    color: ${(props) => props.theme.colors.primary};
     &::-webkit-input-placeholder {
       color: #b7b6af;
       font-weight: 700;

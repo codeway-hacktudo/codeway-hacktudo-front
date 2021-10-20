@@ -8,7 +8,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background: #f4f2e9;
+  background: ${(props) => props.theme.colors.secundary};
   border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   padding: 21px 24px;
@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
   input {
     flex: 1;
     width: 100%;
-    color: #1c475c;
+    color: ${(props) => props.theme.colors.primary};
     height: 100%;
     font-weight: 700;
     font-size: 35px;

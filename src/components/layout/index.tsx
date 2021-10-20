@@ -1,5 +1,6 @@
 import React from 'react';
 import {HiArrowLeft} from 'react-icons/hi';
+import {DefaultTheme, withTheme} from 'styled-components';
 import {
   Container,
   Content,
@@ -15,7 +16,7 @@ interface ILayoutProps {
   name: string;
   id: string;
   color: string;
-
+  theme: DefaultTheme;
   onClickBack: () => void;
   onClickPrincipalButton: () => void;
 }
@@ -28,15 +29,16 @@ const Layout: React.FC<ILayoutProps> = ({
   color,
   onClickBack,
   onClickPrincipalButton,
+  theme,
 }) => {
   const infosButtonSeenData =
-    color === '#E4EBED'
+    color === theme.colors.success
       ? {
-          color: '#F7B6AF',
+          color: theme.colors.error,
           text: 'Ver dados faltantes',
         }
       : {
-          color: '#E4EBED',
+          color: theme.colors.success,
           text: 'Ver todos os dados',
         };
   return (
@@ -46,7 +48,10 @@ const Layout: React.FC<ILayoutProps> = ({
           <Button
             onClick={onClickBack}
             icon={() => (
-              <HiArrowLeft color="#1C475C" style={{marginRight: 5}} />
+              <HiArrowLeft
+                color={theme.colors.primary}
+                style={{marginRight: 5}}
+              />
             )}
             background={color}>
             Voltar
@@ -72,4 +77,4 @@ const Layout: React.FC<ILayoutProps> = ({
   );
 };
 
-export default Layout;
+export default withTheme(Layout);
