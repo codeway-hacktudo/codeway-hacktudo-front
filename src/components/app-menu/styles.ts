@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   width: 100vw;
   padding: 16px 32px;
-  background-color: ${(props) => props.theme.colors.secundary};
+  background-color: ${(props) => props.theme.colors.auxBackground};
 `;
 
 export const ButtonMenu = styled(Button)`

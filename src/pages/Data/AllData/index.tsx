@@ -3,11 +3,13 @@ import {useHistory} from 'react-router-dom';
 import {HiArrowLeft, HiArrowRight} from 'react-icons/hi';
 
 import loadash from 'lodash';
+import {DefaultTheme, withTheme} from 'styled-components';
 import Modal from '../../../components/modal';
 import Layout from '../../../components/layout';
 import ProgressBar from '../../../components/progress-bar';
 import Button from '../../../components/button';
 import {inputsSteps} from '../../../utils/constants';
+
 import InputLabel from '../../../components/input-label';
 import {
   Container,
@@ -23,7 +25,11 @@ import {
   ConfirmWrapper,
 } from '../styles';
 
-const AllData: React.FC = () => {
+interface IAllDataProps {
+  theme: DefaultTheme;
+}
+
+const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const history = useHistory();
   const lengthInputsSteps = inputsSteps.length;
 
@@ -77,7 +83,7 @@ const AllData: React.FC = () => {
         id="000.000.000-00"
         onClickBack={() => history.push('/')}
         onClickPrincipalButton={() => history.push('/missing-data')}
-        color="#E4EBED">
+        color={theme.colors.success}>
         <Container>
           <div>
             <ProgressBar now={step / lengthInputsSteps} />
@@ -128,4 +134,4 @@ const AllData: React.FC = () => {
   );
 };
 
-export default AllData;
+export default withTheme(AllData);

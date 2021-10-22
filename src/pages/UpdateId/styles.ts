@@ -24,7 +24,7 @@ export const InputDropId = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 440px;
-  background: ${(props) => props.theme.colors.secundary};
+  background: ${(props) => props.theme.colors.auxBackground};
   border: 1px dashed #b7b6af;
   border-radius: 8px;
   padding: 65px 35px;
@@ -54,7 +54,7 @@ export const InputDropId = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fdfbf1;
+    background: ${(props) => props.theme.colors.background};
     border-radius: 8px;
     width: 125px;
     height: 45px;

@@ -30,7 +30,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background: ${(props) => props.theme.colors.secundary};
+  background: ${(props) => props.theme.colors.auxBackground};
   border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   padding: 12px;

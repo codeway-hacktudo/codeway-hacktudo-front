@@ -76,7 +76,7 @@ const UpdateId: React.FC<IUpdateIdProps> = ({theme}) => {
                 style={{marginRight: 5}}
               />
             )}
-            background={theme.colors.success}
+            background={theme.colors.auxBackground}
           />
         </ButtonWrapper>
       </section>
