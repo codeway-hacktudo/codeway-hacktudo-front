@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
+  padding-top: 70px;
   flex-direction: column;
 `;
 
@@ -11,8 +12,24 @@ export const ContainerInputs = styled.div`
   display: flex;
   height: 100vh;
   flex-direction: column;
-  padding: 50px 5px;
-  overflow: scroll;
+  padding: 50px 50px 50px 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #25272f;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0c0d12;
+    border-radius: 8px;
+  }
 `;
 
 interface IContainerButtonsProps {

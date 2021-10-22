@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex: 1;
   height: 100vh;
   width: 100vw;
+  padding-top: 70px;
 `;
 
 interface IContentMenuProps {
