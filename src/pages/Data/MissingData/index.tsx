@@ -23,11 +23,12 @@ interface IMissingDataProps {
 const MissingData: React.FC<IMissingDataProps> = ({theme}) => {
   const history = useHistory();
 
-  // TODO ALTERAR NA INTEGRAÇÃO
-  const inputsStepsErros = inputsSteps.slice(2, 5);
-  const lengthInputsSteps = inputsStepsErros.length;
+  const lengthInputsSteps = 1;
 
   const [step, setStep] = useState(0);
+  const [complement, setComplement] = useState('');
+  const [cep, setCep] = useState('');
+  const [fiscalCountry, setFiscalCountry] = useState('');
 
   const handleStep = (stepParam: number): void => {
     if (lengthInputsSteps === step + 1 && stepParam > 0) {
@@ -49,21 +50,27 @@ const MissingData: React.FC<IMissingDataProps> = ({theme}) => {
           <ProgressBar now={step / lengthInputsSteps} />
         </div>
         <ContainerInputs>
-          {loadash.map(
-            inputsStepsErros[step],
-            (
-              inputMapContext: {nameLabel: string; translate: string},
-              index,
-            ) => {
-              return (
-                <InputLabel
-                  name={index}
-                  labelName={inputMapContext.nameLabel}
-                  translateLabelName={inputMapContext.translate}
-                />
-              );
-            },
-          )}
+          <InputLabel
+            value={fiscalCountry}
+            onChange={(e) => setFiscalCountry(e.target.value)}
+            name="fiscalCountry"
+            labelName="País de Domicílio Fiscal (1)"
+            translateLabelName="Country of Domicile for Tax Purposes (1)"
+          />
+          <InputLabel
+            value={cep}
+            onChange={(e) => setCep(e.target.value)}
+            name="cep"
+            labelName="CEP"
+            translateLabelName="Postcode"
+          />
+          <InputLabel
+            value={complement}
+            onChange={(e) => setComplement(e.target.value)}
+            name="complement"
+            labelName="Complemento"
+            translateLabelName="Complement"
+          />
         </ContainerInputs>
         <ContainerButtons firstStep={step === 0}>
           {step !== 0 && (

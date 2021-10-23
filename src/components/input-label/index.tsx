@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {InputHTMLAttributes} from 'react';
 import {withTheme, DefaultTheme} from 'styled-components';
 import Input from '../input';
 import {Container, Label, TranslateLabel, InputWrapper} from './styles';
 
-interface IInputLabelProps {
+interface IInputLabelProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   labelName: string;
   translateLabelName: string;
@@ -15,13 +15,14 @@ const InputLabel: React.FC<IInputLabelProps> = ({
   labelName,
   translateLabelName,
   theme,
+  ...rest
 }) => {
   return (
     <Container>
       <Label>{labelName}</Label>
       <TranslateLabel>{translateLabelName}</TranslateLabel>
       <InputWrapper>
-        <input placeholder="" id={name} />
+        <input {...rest} placeholder="" id={name} />
       </InputWrapper>
     </Container>
   );

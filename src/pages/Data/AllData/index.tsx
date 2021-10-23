@@ -32,7 +32,17 @@ interface IAllDataProps {
 const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const history = useHistory();
   const [seeTree, setSeeTree] = useState(false);
-  const lengthInputsSteps = inputsSteps.length;
+  const [socialName, setSocialName] = useState('');
+  const [cnpj, setCnpj] = useState('');
+  const [nire, setNire] = useState('');
+  const [organizationDate, setOrganizationDate] = useState('');
+  const [fiscalCountry, setFiscalCountry] = useState('');
+  const [number, setNumber] = useState('');
+  const [address, setAddress] = useState('');
+  const [complement, setComplement] = useState('');
+  const [cep, setCep] = useState('');
+
+  const lengthInputsSteps = 2;
 
   const [step, setStep] = useState(0);
   const [isModalOpen, setModalOpen] = useState(false);
@@ -52,7 +62,6 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const handleSeeTree = (): void => {
     setSeeTree(!seeTree);
   };
-
   return (
     <>
       <Modal close={() => setModalOpen(false)} isOpen={isModalOpen}>
@@ -71,12 +80,16 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
             </InputDescription>
           </ChangesWrapper>
           <CancelWrapper>
-            <Button onClick={() => setModalOpen(false)} background="#fdfcfa">
+            <Button
+              onClick={() => setModalOpen(false)}
+              background={theme.colors.background}>
               Cancelar
             </Button>
           </CancelWrapper>
           <ConfirmWrapper>
-            <Button onClick={() => confirmChanges()} background="#E4EBED">
+            <Button
+              onClick={() => confirmChanges()}
+              background={theme.colors.auxBackground}>
               Salvar
             </Button>
           </ConfirmWrapper>
@@ -99,20 +112,75 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
             </div>
 
             <ContainerInputs>
-              {loadash.map(
-                inputsSteps[step],
-                (
-                  inputMapContext: {nameLabel: string; translate: string},
-                  index,
-                ) => {
-                  return (
-                    <InputLabel
-                      name={index}
-                      labelName={inputMapContext.nameLabel}
-                      translateLabelName={inputMapContext.translate}
-                    />
-                  );
-                },
+              {step === 0 ? (
+                <>
+                  <InputLabel
+                    value={socialName}
+                    onChange={(e) => setSocialName(e.target.value)}
+                    name="socialName"
+                    labelName="Razão Social (sem abreviação)"
+                    translateLabelName="Company Name (no abbreviation)"
+                  />
+                  <InputLabel
+                    value={cnpj}
+                    onChange={(e) => setCnpj(e.target.value)}
+                    name="cnpj"
+                    labelName="CNPJ"
+                    translateLabelName="Companies Tax Enrollment Number (CNPJ)"
+                  />
+                  <InputLabel
+                    value={nire}
+                    onChange={(e) => setNire(e.target.value)}
+                    name="nire"
+                    labelName="No Identificação no Registro de Empresas (NIRE)"
+                    translateLabelName="No. of Identification in the Companies Registry (NIRE)"
+                  />
+                  <InputLabel
+                    value={organizationDate}
+                    onChange={(e) => setOrganizationDate(e.target.value)}
+                    name="organizationDate"
+                    labelName="Data de Constituição (dd/mm/aaaa)"
+                    translateLabelName="Date of Organization (dd/mm/yyyy)"
+                  />
+                  <InputLabel
+                    value={fiscalCountry}
+                    onChange={(e) => setFiscalCountry(e.target.value)}
+                    name="fiscalCountry"
+                    labelName="País de Domicílio Fiscal (1)"
+                    translateLabelName="Country of Domicile for Tax Purposes (1)"
+                  />
+                </>
+              ) : (
+                <>
+                  <InputLabel
+                    value={number}
+                    onChange={(e) => setNumber(e.target.value)}
+                    name="number"
+                    labelName="Número"
+                    translateLabelName="number"
+                  />
+                  <InputLabel
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    name="address"
+                    labelName="Endereço"
+                    translateLabelName="Address"
+                  />
+                  <InputLabel
+                    value={complement}
+                    onChange={(e) => setComplement(e.target.value)}
+                    name="complement"
+                    labelName="Complemento"
+                    translateLabelName="Complement"
+                  />
+                  <InputLabel
+                    value={cep}
+                    onChange={(e) => setCep(e.target.value)}
+                    name="cep"
+                    labelName="CEP"
+                    translateLabelName="Postcode"
+                  />
+                </>
               )}
             </ContainerInputs>
 
