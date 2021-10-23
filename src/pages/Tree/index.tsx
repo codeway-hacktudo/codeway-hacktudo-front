@@ -54,11 +54,18 @@ const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
         onClick={() => handleNodeClick(nodeDatum)}
         missingDate={nodeDatum.attributes?.missingData}
       />
-      <TextTitleTree x="-120" dy="-70" onClick={toggleNode}>
+      <TextTitleTree
+        missingDate={nodeDatum.attributes?.missingData}
+        x="-120"
+        dy="-70"
+        onClick={toggleNode}>
         {nodeDatum.name}
       </TextTitleTree>
       {nodeDatum.attributes?.cnpj && (
-        <TextSubTitleTree x="-100" dy="-50">
+        <TextSubTitleTree
+          x="-100"
+          dy="-50"
+          missingDate={nodeDatum.attributes?.missingData}>
           CNPJ: {nodeDatum.attributes?.cnpj}
         </TextSubTitleTree>
       )}
@@ -84,17 +91,18 @@ const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
         <ModalContainer>
           <ModalTitle>{selectedNode?.name}</ModalTitle>
           <ChangesWrapper>
-            <InputChanged>Razão Social (sem abreviação)</InputChanged>
+            <InputChanged>País de Domicílio Fiscal (1)</InputChanged>
             <InputDescription>
               Aqui um Campo que falta ser preenchido
             </InputDescription>
           </ChangesWrapper>
           <ChangesWrapper>
-            <InputChanged>CNPJ</InputChanged>
+            <InputChanged>CEP</InputChanged>
             <InputDescription>
               Aqui um Campo que falta ser preenchido
             </InputDescription>
           </ChangesWrapper>
+
           <CancelWrapper>
             <Button
               onClick={() => setModalOpen(false)}

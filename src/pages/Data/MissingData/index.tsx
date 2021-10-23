@@ -26,7 +26,6 @@ const MissingData: React.FC<IMissingDataProps> = ({theme}) => {
   const lengthInputsSteps = 1;
 
   const [step, setStep] = useState(0);
-  const [complement, setComplement] = useState('');
   const [cep, setCep] = useState('');
   const [fiscalCountry, setFiscalCountry] = useState('');
 
@@ -63,13 +62,6 @@ const MissingData: React.FC<IMissingDataProps> = ({theme}) => {
             name="cep"
             labelName="CEP"
             translateLabelName="Postcode"
-          />
-          <InputLabel
-            value={complement}
-            onChange={(e) => setComplement(e.target.value)}
-            name="complement"
-            labelName="Complemento"
-            translateLabelName="Complement"
           />
         </ContainerInputs>
         <ContainerButtons firstStep={step === 0}>

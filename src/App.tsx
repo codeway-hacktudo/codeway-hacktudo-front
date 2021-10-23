@@ -6,7 +6,7 @@ import usePeristedState from './hooks/usePersistedState';
 import distributor1Theme from './styles/themes/distributor1';
 import distributor2Theme from './styles/themes/distributor2';
 
-import Menu from './components/app-menu';
+// import Menu from './components/app-menu';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 

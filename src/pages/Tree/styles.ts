@@ -5,10 +5,10 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-interface ICircleTree {
+interface IMissingData {
   missingDate: string | number | boolean | undefined;
 }
-export const CircleTree = styled.circle<ICircleTree>`
+export const CircleTree = styled.circle<IMissingData>`
   fill: ${(props) => props.theme.colors.primary};
 
   ${(props) =>
@@ -18,16 +18,21 @@ export const CircleTree = styled.circle<ICircleTree>`
     `}
 `;
 
-export const TextTitleTree = styled.text`
+export const TextTitleTree = styled.text<IMissingData>`
   font-family: Merriweather;
   font-size: 20px;
   font-style: normal;
   line-height: 30px;
   stroke-width: 0px;
   fill: ${(props) => props.theme.colors.primary};
+  ${(props) =>
+    props.missingDate &&
+    css`
+      fill: ${props.theme.colors.error};
+    `}
 `;
 
-export const TextSubTitleTree = styled.text`
+export const TextSubTitleTree = styled.text<IMissingData>`
   font-family: Merriweather;
   font-size: 16px;
   font-style: normal;
@@ -36,6 +41,11 @@ export const TextSubTitleTree = styled.text`
   text-align: center;
   stroke-width: 0px;
   fill: ${(props) => props.theme.colors.primary};
+  ${(props) =>
+    props.missingDate &&
+    css`
+      fill: ${props.theme.colors.error};
+    `}
 `;
 
 export const ChangesWrapper = styled.section`
