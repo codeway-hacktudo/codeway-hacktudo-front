@@ -4,7 +4,6 @@ import Home from '../pages/Home';
 import AllData from '../pages/Data/AllData';
 import MissingData from '../pages/Data/MissingData';
 import UpdateId from '../pages/UpdateId';
-import Tree from '../pages/Tree';
 import AcceptOpenBanking from '../pages/AcceptOpenBanking';
 import BankChoice from '../pages/BankChoice';
 
@@ -25,7 +24,6 @@ const Routes: React.FC<IRoutes> = ({toggleTheme}) => {
       <Route path="/all-data" exact component={AllData} />
       <Route path="/missing-data" exact component={MissingData} />
       <Route path="/update-id" exact component={UpdateId} />
-      <Route path="/tree" exact component={Tree} />
       <Route path="/accept-open-banking" exact component={AcceptOpenBanking} />
       <Route path="/bank-choice" exact component={BankChoice} />
     </Switch>

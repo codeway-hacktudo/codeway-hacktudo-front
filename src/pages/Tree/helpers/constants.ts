@@ -1,41 +1,38 @@
 export const corporateStructure = {
-  name: 'Mundo da Eletronica',
+  name: 'Luiza e Benjamin Assessoria',
   attributes: {
     cnpj: '50685362006773',
     missingData: false,
+    shareholding: 0.38,
   },
   children: [
     {
-      name: 'Lucas Mendes de Melo',
+      name: 'Luiz Claudio Santana',
       attributes: {
-        cnpj: '50685362006773',
+        cnpj: '66539594000111',
         missingData: false,
+        shareholding: 0.31,
       },
       children: [
         {
-          name: 'Foreman',
+          name: 'Kauê Telecomunicações',
           attributes: {
-            department: 'Fabrication',
+            cnpj: '66539594000111',
             missingData: true,
-          },
-          children: [],
-        },
-        {
-          name: 'Foreman',
-          attributes: {
-            department: 'Fabrication',
-            missingData: false,
+            shareholding: 0.51,
           },
           children: [],
         },
       ],
     },
     {
-      name: 'Luiz Claudio Santana',
+      name: 'Lucas Mendes de Melo',
       attributes: {
-        cnpj: '50685362006773',
+        cnpj: '51329363000106',
         missingData: false,
+        shareholding: 0.31,
       },
+
       children: [],
     },
   ],
