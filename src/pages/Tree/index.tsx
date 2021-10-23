@@ -2,7 +2,8 @@ import React from 'react';
 import Tree from 'react-d3-tree';
 import {withTheme, DefaultTheme} from 'styled-components';
 import {corporateStructure} from './helpers/constants';
-import {Container, CircleTree} from './styles';
+import {Container, CircleTree, TextTitleTree, TextSubTitleTree} from './styles';
+import {useCenteredTree} from './helpers';
 
 interface RawNodeDatum {
   name: string;
@@ -21,24 +22,22 @@ interface IRenderNodeCustom {
 }
 
 const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
+  const {translate, containerRef} = useCenteredTree();
+
   const renderNodeWithCustomEvents = ({
     nodeDatum,
     toggleNode,
     handleNodeClick,
   }: IRenderNodeCustom): React.ReactElement => (
     <g>
-      <CircleTree r="15" onClick={() => handleNodeClick(nodeDatum)} />
-      <text
-        fill={theme.colors.primary}
-        strokeWidth="1"
-        x="20"
-        onClick={toggleNode}>
+      <CircleTree r="30" onClick={() => handleNodeClick(nodeDatum)} />
+      <TextTitleTree x="40" onClick={toggleNode}>
         {nodeDatum.name}
-      </text>
-      {nodeDatum.attributes?.department && (
-        <text fill={theme.colors.primary} x="20" dy="20" strokeWidth="1">
-          Department: {nodeDatum.attributes?.department}
-        </text>
+      </TextTitleTree>
+      {nodeDatum.attributes?.cnpj && (
+        <TextSubTitleTree x="50" dy="20">
+          CNPJ: {nodeDatum.attributes?.cnpj}
+        </TextSubTitleTree>
       )}
     </g>
   );
@@ -51,13 +50,16 @@ const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
   };
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Tree
         data={corporateStructure}
+        translate={translate}
         renderCustomNodeElement={(props) =>
           renderNodeWithCustomEvents({...props, handleNodeClick})
         }
+        pathFunc="elbow"
         orientation="vertical"
+        separation={{nonSiblings: 1, siblings: 2.5}}
       />
     </Container>
   );

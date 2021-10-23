@@ -1,35 +1,42 @@
 export const corporateStructure = {
-  name: 'CEO',
+  name: 'Mundo da Eletronica',
+  attributes: {
+    cnpj: '50685362006773',
+    missingData: false,
+  },
   children: [
     {
-      name: 'Manager',
+      name: 'Lucas Mendes de Melo',
       attributes: {
-        department: 'Production',
+        cnpj: '50685362006773',
+        missingData: false,
       },
       children: [
         {
           name: 'Foreman',
           attributes: {
             department: 'Fabrication',
+            missingData: true,
           },
-          children: [
-            {
-              name: 'Worker',
-            },
-          ],
+          children: [],
         },
         {
           name: 'Foreman',
           attributes: {
-            department: 'Assembly',
+            department: 'Fabrication',
+            missingData: false,
           },
-          children: [
-            {
-              name: 'Worker',
-            },
-          ],
+          children: [],
         },
       ],
+    },
+    {
+      name: 'Luiz Claudio Santana',
+      attributes: {
+        cnpj: '50685362006773',
+        missingData: false,
+      },
+      children: [],
     },
   ],
 };

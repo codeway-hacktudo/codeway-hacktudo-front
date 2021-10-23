@@ -90,57 +90,55 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
         onClickPrincipalButton={() => history.push('/missing-data')}
         onClickSeeTree={handleSeeTree}
         color={theme.colors.success}>
-        <Container>
-          {seeTree ? (
-            <Tree />
-          ) : (
-            <>
-              <div>
-                <ProgressBar now={step / lengthInputsSteps} />
-              </div>
+        {seeTree ? (
+          <Tree />
+        ) : (
+          <Container>
+            <div>
+              <ProgressBar now={step / lengthInputsSteps} />
+            </div>
 
-              <ContainerInputs>
-                {loadash.map(
-                  inputsSteps[step],
-                  (
-                    inputMapContext: {nameLabel: string; translate: string},
-                    index,
-                  ) => {
-                    return (
-                      <InputLabel
-                        name={index}
-                        labelName={inputMapContext.nameLabel}
-                        translateLabelName={inputMapContext.translate}
-                      />
-                    );
-                  },
-                )}
-              </ContainerInputs>
-
-              <ContainerButtons firstStep={step === 0}>
-                {step !== 0 && (
-                  <ButtonWrapper>
-                    <Button
-                      onClick={() => handleStep(-1)}
-                      icon={() => <HiArrowLeft color="#1C475C" size="30" />}
-                      background="#E4EBED"
+            <ContainerInputs>
+              {loadash.map(
+                inputsSteps[step],
+                (
+                  inputMapContext: {nameLabel: string; translate: string},
+                  index,
+                ) => {
+                  return (
+                    <InputLabel
+                      name={index}
+                      labelName={inputMapContext.nameLabel}
+                      translateLabelName={inputMapContext.translate}
                     />
-                  </ButtonWrapper>
-                )}
+                  );
+                },
+              )}
+            </ContainerInputs>
 
+            <ContainerButtons firstStep={step === 0}>
+              {step !== 0 && (
                 <ButtonWrapper>
                   <Button
-                    onClick={() =>
-                      step === 0 ? setModalOpen(true) : handleStep(1)
-                    }
-                    icon={() => <HiArrowRight color="#1C475C" size="30" />}
+                    onClick={() => handleStep(-1)}
+                    icon={() => <HiArrowLeft color="#1C475C" size="30" />}
                     background="#E4EBED"
                   />
                 </ButtonWrapper>
-              </ContainerButtons>
-            </>
-          )}
-        </Container>
+              )}
+
+              <ButtonWrapper>
+                <Button
+                  onClick={() =>
+                    step === 0 ? setModalOpen(true) : handleStep(1)
+                  }
+                  icon={() => <HiArrowRight color="#1C475C" size="30" />}
+                  background="#E4EBED"
+                />
+              </ButtonWrapper>
+            </ContainerButtons>
+          </Container>
+        )}
       </Layout>
     </>
   );
