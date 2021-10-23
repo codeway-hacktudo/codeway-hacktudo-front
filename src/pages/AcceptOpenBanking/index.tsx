@@ -58,7 +58,7 @@ const AcceptOpenBanking: React.FC<IAcceptOpenBankingProps> = ({theme}) => {
 
           <ButtonsAcceptsWrapper>
             <Button
-              onClick={() => history.push('/choice-bank')}
+              onClick={() => history.push('/bank-choice')}
               background={theme.colors.success}>
               Aceitar
             </Button>

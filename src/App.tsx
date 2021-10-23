@@ -26,8 +26,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
-        <Menu toggleTheme={toggleTheme} />
-        <Routes />
+        <Routes toggleTheme={toggleTheme} />
       </Router>
     </ThemeProvider>
   );

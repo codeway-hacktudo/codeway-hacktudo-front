@@ -15,7 +15,7 @@ export const Container = styled.button<IButtonProps>`
   font-style: normal;
   font-weight: bold;
   border-radius: 8px;
-  height: 56px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

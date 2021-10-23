@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import Button from '@material-ui/core/Button';
 
 export const Container = styled.div`
   position: absolute;
   display: flex;
   width: 100vw;
-  height: 70px;
-  padding: 16px 32px;
+  padding: 8px 32px;
   background-color: ${(props) => props.theme.colors.auxBackground};
+  align-items: center;
 `;
 
-export const ButtonMenu = styled(Button)`
-  font-family: 'Merriweather';
+export const WrapperMenu = styled.div`
+  width: 216px;
 `;

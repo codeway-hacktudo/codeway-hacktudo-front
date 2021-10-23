@@ -39,16 +39,18 @@ export const ContainerButtons = styled.div`
   margin-top: 35px;
   width: 40%;
   align-items: center;
+  height: 66px;
   justify-content: space-around;
 `;
 
 export const ButtonsAcceptsWrapper = styled.div`
+  height: 90%;
   width: 35%;
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   width: 66px;
-  height: 66px;
+  height: 100%;
   align-items: center;
 `;

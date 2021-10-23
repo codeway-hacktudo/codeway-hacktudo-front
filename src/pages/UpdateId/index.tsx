@@ -19,13 +19,12 @@ const UpdateId: React.FC<IUpdateIdProps> = ({theme}) => {
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      console.log(acceptedFiles);
       setLoading(true);
 
       // TODO CHAMAR API
       setTimeout(function () {
         setLoading(false);
-        history.push('/all-data');
+        history.push('/accept-open-banking');
       }, 3000);
     },
     [history],

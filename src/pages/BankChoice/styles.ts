@@ -9,6 +9,13 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.background};
 `;
 
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 850px;
+`;
+
 export const Title = styled.h1`
   margin-bottom: 28px;
   font-weight: 700;
@@ -17,7 +24,15 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.colors.primary};
 `;
 
+export const ButtonWrapper = styled.div`
+  width: 86px;
+  height: 100%;
+`;
+
 export const InputWrapper = styled.div`
-  width: 890px;
+  width: 87%;
   height: 86px;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.colors.auxBackground};
 `;
