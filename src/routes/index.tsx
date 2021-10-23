@@ -7,6 +7,7 @@ import UpdateId from '../pages/UpdateId';
 import AcceptOpenBanking from '../pages/AcceptOpenBanking';
 import BankChoice from '../pages/BankChoice';
 import Finished from '../pages/Finished';
+import DigitalSignature from '../pages/DigitalSignature';
 
 import DistributorChoice from '../pages/DistributorChoice';
 
@@ -27,6 +28,7 @@ const Routes: React.FC<IRoutes> = ({toggleTheme}) => {
       <Route path="/update-id" exact component={UpdateId} />
       <Route path="/accept-open-banking" exact component={AcceptOpenBanking} />
       <Route path="/bank-choice" exact component={BankChoice} />
+      <Route path="/digital-signature" exact component={DigitalSignature} />
       <Route path="/finished" exact component={Finished} />
     </Switch>
   );

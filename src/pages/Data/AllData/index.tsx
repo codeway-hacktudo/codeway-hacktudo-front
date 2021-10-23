@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {HiArrowLeft, HiArrowRight} from 'react-icons/hi';
-
-import loadash from 'lodash';
 import {DefaultTheme, withTheme} from 'styled-components';
 import Modal from '../../../components/modal';
 import Layout from '../../../components/layout';
 import ProgressBar from '../../../components/progress-bar';
 import Button from '../../../components/button';
-import {inputsSteps} from '../../../utils/constants';
 import Tree from '../../Tree';
 import InputLabel from '../../../components/input-label';
 import {
@@ -48,6 +45,9 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleStep = (stepParam: number): void => {
+    if (step === 1) {
+      history.push('/digital-signature');
+    }
     if (lengthInputsSteps === step + 1 && stepParam > 0) {
       return;
     }

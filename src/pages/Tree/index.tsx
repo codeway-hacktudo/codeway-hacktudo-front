@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Tree from 'react-d3-tree';
+import {useHistory} from 'react-router-dom';
 import {withTheme, DefaultTheme} from 'styled-components';
 import {corporateStructure} from './helpers/constants';
 import Modal from '../../components/modal';
@@ -39,6 +40,7 @@ interface IRenderNodeCustom {
 }
 
 const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
+  const history = useHistory();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState<RawNodeDatum>();
   const {translate, containerRef} = useCenteredTree();
@@ -83,7 +85,9 @@ const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
     window.alert('Informações preenchidas com sucesso!');
   };
 
-  const confirmChanges = (): void => {};
+  const confirmChanges = (): void => {
+    history.push('/digital-signature');
+  };
 
   return (
     <>
