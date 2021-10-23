@@ -9,7 +9,7 @@ import Layout from '../../../components/layout';
 import ProgressBar from '../../../components/progress-bar';
 import Button from '../../../components/button';
 import {inputsSteps} from '../../../utils/constants';
-
+import Tree from '../../Tree';
 import InputLabel from '../../../components/input-label';
 import {
   Container,
@@ -31,6 +31,7 @@ interface IAllDataProps {
 
 const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const history = useHistory();
+  const [seeTree, setSeeTree] = useState(false);
   const lengthInputsSteps = inputsSteps.length;
 
   const [step, setStep] = useState(0);
@@ -46,6 +47,10 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const confirmChanges = (): void => {
     handleStep(1);
     setModalOpen(false);
+  };
+
+  const handleSeeTree = (): void => {
+    setSeeTree(!seeTree);
   };
 
   return (
@@ -83,51 +88,58 @@ const AllData: React.FC<IAllDataProps> = ({theme}) => {
         id="000.000.000-00"
         onClickBack={() => history.push('/')}
         onClickPrincipalButton={() => history.push('/missing-data')}
+        onClickSeeTree={handleSeeTree}
         color={theme.colors.success}>
         <Container>
-          <div>
-            <ProgressBar now={step / lengthInputsSteps} />
-          </div>
+          {seeTree ? (
+            <Tree />
+          ) : (
+            <>
+              <div>
+                <ProgressBar now={step / lengthInputsSteps} />
+              </div>
 
-          <ContainerInputs>
-            {loadash.map(
-              inputsSteps[step],
-              (
-                inputMapContext: {nameLabel: string; translate: string},
-                index,
-              ) => {
-                return (
-                  <InputLabel
-                    name={index}
-                    labelName={inputMapContext.nameLabel}
-                    translateLabelName={inputMapContext.translate}
+              <ContainerInputs>
+                {loadash.map(
+                  inputsSteps[step],
+                  (
+                    inputMapContext: {nameLabel: string; translate: string},
+                    index,
+                  ) => {
+                    return (
+                      <InputLabel
+                        name={index}
+                        labelName={inputMapContext.nameLabel}
+                        translateLabelName={inputMapContext.translate}
+                      />
+                    );
+                  },
+                )}
+              </ContainerInputs>
+
+              <ContainerButtons firstStep={step === 0}>
+                {step !== 0 && (
+                  <ButtonWrapper>
+                    <Button
+                      onClick={() => handleStep(-1)}
+                      icon={() => <HiArrowLeft color="#1C475C" size="30" />}
+                      background="#E4EBED"
+                    />
+                  </ButtonWrapper>
+                )}
+
+                <ButtonWrapper>
+                  <Button
+                    onClick={() =>
+                      step === 0 ? setModalOpen(true) : handleStep(1)
+                    }
+                    icon={() => <HiArrowRight color="#1C475C" size="30" />}
+                    background="#E4EBED"
                   />
-                );
-              },
-            )}
-          </ContainerInputs>
-
-          <ContainerButtons firstStep={step === 0}>
-            {step !== 0 && (
-              <ButtonWrapper>
-                <Button
-                  onClick={() => handleStep(-1)}
-                  icon={() => <HiArrowLeft color="#1C475C" size="30" />}
-                  background="#E4EBED"
-                />
-              </ButtonWrapper>
-            )}
-
-            <ButtonWrapper>
-              <Button
-                onClick={() =>
-                  step === 0 ? setModalOpen(true) : handleStep(1)
-                }
-                icon={() => <HiArrowRight color="#1C475C" size="30" />}
-                background="#E4EBED"
-              />
-            </ButtonWrapper>
-          </ContainerButtons>
+                </ButtonWrapper>
+              </ContainerButtons>
+            </>
+          )}
         </Container>
       </Layout>
     </>

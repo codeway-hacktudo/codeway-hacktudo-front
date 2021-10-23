@@ -5,7 +5,7 @@ import {
   Container,
   Content,
   ContentMenu,
-  ContainerButton,
+  WrapperBackButton,
   ContainerCenterMenu,
   ButtonWarpper,
 } from './styles';
@@ -19,6 +19,7 @@ interface ILayoutProps {
   theme: DefaultTheme;
   onClickBack: () => void;
   onClickPrincipalButton: () => void;
+  onClickSeeTree?: () => void;
 }
 
 const Layout: React.FC<ILayoutProps> = ({
@@ -29,6 +30,7 @@ const Layout: React.FC<ILayoutProps> = ({
   color,
   onClickBack,
   onClickPrincipalButton,
+  onClickSeeTree,
   theme,
 }) => {
   const infosButtonSeenData =
@@ -44,7 +46,7 @@ const Layout: React.FC<ILayoutProps> = ({
   return (
     <Container>
       <ContentMenu backgroundColor={color}>
-        <ContainerButton>
+        <WrapperBackButton>
           <Button
             onClick={onClickBack}
             icon={() => (
@@ -56,7 +58,7 @@ const Layout: React.FC<ILayoutProps> = ({
             background={color}>
             Voltar
           </Button>
-        </ContainerButton>
+        </WrapperBackButton>
 
         <ContainerCenterMenu>
           <h1>{title}</h1>
@@ -65,11 +67,23 @@ const Layout: React.FC<ILayoutProps> = ({
 
           <ButtonWarpper>
             <Button
+              borderColor={theme.colors.error}
               onClick={onClickPrincipalButton}
               background={infosButtonSeenData.color}>
               {infosButtonSeenData.text}
             </Button>
           </ButtonWarpper>
+
+          {title === 'Todos os dados' && (
+            <ButtonWarpper>
+              <Button
+                borderColor={theme.colors.primary}
+                onClick={onClickSeeTree}
+                background="transparent">
+                Ver como árvore
+              </Button>
+            </ButtonWarpper>
+          )}
         </ContainerCenterMenu>
       </ContentMenu>
       <Content>{children}</Content>

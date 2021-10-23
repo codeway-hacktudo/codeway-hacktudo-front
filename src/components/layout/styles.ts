@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex: 1;
   height: 100vh;
   width: 100vw;
-  padding-top: 70px;
 `;
 
 interface IContentMenuProps {
@@ -29,15 +28,16 @@ export const Content = styled.div`
   padding: 32px;
 `;
 
-export const ContainerButton = styled.div`
+export const WrapperBackButton = styled.div`
   width: 123px;
+  height: 56px;
 `;
 
 export const ContainerCenterMenu = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 15%;
+  padding-top: 10%;
 
   h1 {
     font-family: 'Merriweather';
@@ -47,7 +47,7 @@ export const ContainerCenterMenu = styled.div`
     line-height: 60px;
     text-align: center;
     color: ${(props) => props.theme.colors.primary};
-    margin-top: 20%;
+    margin-top: 15%;
   }
 
   h2 {
@@ -58,14 +58,13 @@ export const ContainerCenterMenu = styled.div`
     line-height: 40px;
     text-align: center;
     color: ${(props) => props.theme.colors.primary};
-  }
-
-  button {
-    margin-top: 30%;
+    padding-bottom: 15%;
   }
 `;
 
 export const ButtonWarpper = styled.div`
   width: 240px;
+  height: 56px;
   align-self: center;
+  margin-top: 5%;
 `;

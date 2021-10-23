@@ -3,6 +3,7 @@ import {shade} from 'polished';
 
 interface IButtonProps {
   background: string;
+  borderColor?: string;
   right?: boolean;
 }
 
@@ -10,8 +11,9 @@ export const Container = styled.button<IButtonProps>`
   background: ${(props) => props.background};
   width: 100%;
   border-width: 1px;
-  border-color: ${(props) => props.theme.colors.primary};
+  border-color: transparent;
   font-family: Merriweather;
+  border-style: solid;
   font-style: normal;
   font-weight: bold;
   border-radius: 8px;
@@ -32,5 +34,11 @@ export const Container = styled.button<IButtonProps>`
     props.right &&
     css`
       flex-direction: row-reverse;
+    `}
+
+  ${(props) =>
+    props.borderColor &&
+    css`
+      border-color: ${props.borderColor};
     `}
 `;

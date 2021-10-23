@@ -60,7 +60,7 @@ const Home: React.FC<IHome> = ({theme}) => {
                   handleClick();
                 },
               }}
-              placeholder="Insira seu CPF ou CNPJ"
+              placeholder="Insira o CNPJ"
               name="accountType"
               error={validDocument ? '' : 'Insira um CPF ou CNPJ válido'}
             />
