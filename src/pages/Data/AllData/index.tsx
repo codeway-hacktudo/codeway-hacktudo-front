@@ -29,15 +29,15 @@ interface IAllDataProps {
 const AllData: React.FC<IAllDataProps> = ({theme}) => {
   const history = useHistory();
   const [seeTree, setSeeTree] = useState(false);
-  const [socialName, setSocialName] = useState('');
-  const [cnpj, setCnpj] = useState('');
+  const [socialName, setSocialName] = useState('Mundo da Eletronica');
+  const [cnpj, setCnpj] = useState('50685362006773');
   const [nire, setNire] = useState('');
-  const [organizationDate, setOrganizationDate] = useState('');
-  const [fiscalCountry, setFiscalCountry] = useState('');
-  const [number, setNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [complement, setComplement] = useState('');
-  const [cep, setCep] = useState('');
+  const [organizationDate, setOrganizationDate] = useState('21/05/2021');
+  const [fiscalCountry, setFiscalCountry] = useState('Brasil');
+  const [number, setNumber] = useState('1270');
+  const [address, setAddress] = useState('Av Naburo Ykesaki, 1270');
+  const [complement, setComplement] = useState('Fundos');
+  const [cep, setCep] = useState('17500001');
 
   const lengthInputsSteps = 2;
 

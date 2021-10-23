@@ -5,6 +5,7 @@ import {withTheme, DefaultTheme} from 'styled-components';
 import {corporateStructure} from './helpers/constants';
 import Modal from '../../components/modal';
 import Button from '../../components/button';
+import InputLabel from '../../components/input-label';
 
 import {useCenteredTree} from './helpers';
 
@@ -15,9 +16,7 @@ import {
   TextSubTitleTree,
   ModalContainer,
   ModalTitle,
-  InputChanged,
   ChangesWrapper,
-  InputDescription,
   CancelWrapper,
   ConfirmWrapper,
 } from './styles';
@@ -44,6 +43,8 @@ const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState<RawNodeDatum>();
   const {translate, containerRef} = useCenteredTree();
+  const [countrySocial, setCountrySocial] = useState('');
+  const [postalCode, setPostalCode] = useState('');
 
   const renderNodeWithCustomEvents = ({
     nodeDatum,
@@ -95,16 +96,22 @@ const TreeCorporateStructure: React.FC<IOrgChartTreeProps> = ({theme}) => {
         <ModalContainer>
           <ModalTitle>{selectedNode?.name}</ModalTitle>
           <ChangesWrapper>
-            <InputChanged>País de Domicílio Fiscal (1)</InputChanged>
-            <InputDescription>
-              Aqui um Campo que falta ser preenchido
-            </InputDescription>
+            <InputLabel
+              value={countrySocial}
+              onChange={(e) => setCountrySocial(e.target.value)}
+              name="socialName"
+              labelName="País de Domicílio Fiscal (1)"
+              translateLabelName="Aqui um Campo que falta ser preenchido"
+            />
           </ChangesWrapper>
           <ChangesWrapper>
-            <InputChanged>CEP</InputChanged>
-            <InputDescription>
-              Aqui um Campo que falta ser preenchido
-            </InputDescription>
+            <InputLabel
+              value={postalCode}
+              onChange={(e) => setPostalCode(e.target.value)}
+              name="cep"
+              labelName="CEP"
+              translateLabelName="Aqui um Campo que falta ser preenchido"
+            />
           </ChangesWrapper>
 
           <CancelWrapper>

@@ -30,6 +30,9 @@ const MissingData: React.FC<IMissingDataProps> = ({theme}) => {
   const [fiscalCountry, setFiscalCountry] = useState('');
 
   const handleStep = (stepParam: number): void => {
+    if (step === 1) {
+      history.push('/digital-signature');
+    }
     if (lengthInputsSteps === step + 1 && stepParam > 0) {
       return;
     }

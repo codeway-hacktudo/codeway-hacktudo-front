@@ -57,18 +57,6 @@ export const ChangesWrapper = styled.section`
   margin-top: 24px;
 `;
 
-export const InputChanged = styled.strong`
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 23px;
-`;
-
-export const InputDescription = styled.strong`
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 23px;
-  font-style: italic;
-`;
 export const ModalContainer = styled.div`
   position: relative;
   width: 532px;
